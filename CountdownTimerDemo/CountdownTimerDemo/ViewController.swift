@@ -14,16 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var countdownLabel2: UILabel!
  
     @IBAction private func didClickStartTimer1Button(_ sender: Any) {
-        CountdownTimer.startTimer(key: .test1, count: 60) { (count, finish) in
-            print(count) // 倒计时数字
-            print(finish) // 是否完成倒计时
-        }
-        
-        CountdownTimer.stopTimer(key: .test1)
-        
-        CountdownTimer.continueTimer(key: .test1) { (count, finish) in
-            print(count) // 倒计时数字
-            print(finish) // 是否完成倒计时
+        CountdownTimer.startTimer(key: .test1, count: 60) { [weak self] (count, finish) in
+            self?.countdownLabel1.text = finish ? "Finished" : "\(count)"
         }
     }
     
