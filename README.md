@@ -2,11 +2,13 @@
 
 全局倒计时工具，可以维护任意多个倒计时
 
+当APP从后台进入前台的时候，倒计时不受影响，会根据时间线继续。
+
 ### 使用方法：
 
-1. 把CountdownTimer.swift文件拖进项目
+1. 把`CountdownTimer.swift`文件拖进项目
 
-2. 在CountdownTimer的枚举CountDownKey中添加定时器
+2. 在`CountdownTimer.swift`的枚举`CountDownKey`中添加定时器
 > 每个枚举值代表一个可供使用的定时器
 ```swift
 enum CountDownKey: CaseIterable {
@@ -27,14 +29,14 @@ CountdownTimer.startTimer(key: .test1, count: 60) { (count, finish) in
 ```
 
 4. 手动停止某个定时器. 
-> 当倒计时完成的时候，定时器也会自动停止并被移除
+> 手动停止或倒计时完，此定时器都会被移除，除非再次开启
 ```swift
 CountdownTimer.stopTimer(key: .test1)
 ```
 
 5. 继续某个定时器
-> 已经被停止的定时器是无法继续的，因为停止的定时器会被移除
-> 这个方法的作用是当开始定时器的页面被销毁，又想继续某个定时器的时候使用
+> - 已经被停止的定时器是无法继续的，因为停止的定时器会被移除
+> - 这个方法的作用是当开始定时器的页面被销毁，又想继续某个定时器的时候使用
 ```swift
 CountdownTimer.continueTimer(key: .test1) { (count, finish) in
   print(count) // 倒计时数字
