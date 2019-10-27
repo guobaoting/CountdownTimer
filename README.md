@@ -4,7 +4,7 @@
 
 ### 使用方法：
 
-1. 把CountdownTimer.swift文件拖进项目
+1. 把`CountdownTimer.swift`文件拖进项目
 
 2. 在CountdownTimer的枚举CountDownKey中添加定时器
 > 每个枚举值代表一个可供使用的定时器
