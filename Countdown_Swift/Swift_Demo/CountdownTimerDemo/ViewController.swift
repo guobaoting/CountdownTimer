@@ -20,9 +20,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func didClickStartTimer2Button(_ sender: Any) {
-        CountdownTimer.startTimer(key: .test2, count: 100) { [weak self] (count, finish) in
+        CountdownTimer.startTimer(key: .test2, count: 10) { [weak self] (count, finish) in
             self?.countdownLabel2.text = finish ? "Finished" : "\(count)"
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        CountdownTimer.stopTimer(key: .test1)
     }
 }
 
