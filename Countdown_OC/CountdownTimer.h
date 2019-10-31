@@ -42,7 +42,7 @@ typedef void(^CountdownCallback)(NSInteger count, BOOL isFinished);
  @param key 倒计时key
  @param callback 回调
  */
-+ (void)countinueTimerWithKey:(CountdownKey)key
++ (void)continueTimerWithKey:(CountdownKey)key
                      callBack:(CountdownCallback)callback;
 
 /**

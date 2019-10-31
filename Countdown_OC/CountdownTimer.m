@@ -58,9 +58,9 @@ static id _instance;
     [[CountdownTimer shared] handleCallbackWithKey:key count:0 isFinished:YES];
 }
 
-+ (void)countinueTimerWithKey:(CountdownKey)key
++ (void)continueTimerWithKey:(CountdownKey)key
                      callBack:(CountdownCallback)callback {
-    [[CountdownTimer shared] countinueTimerWithKey:key callBack:callback];
+    [[CountdownTimer shared] continueTimerWithKey:key callBack:callback];
 }
 
 + (BOOL)isFinishedTimerWithKey:(CountdownKey)key {
@@ -77,7 +77,7 @@ static id _instance;
     [self launchTimerWithKey:key];
 }
 
-- (void)countinueTimerWithKey:(CountdownKey)key
+- (void)continueTimerWithKey:(CountdownKey)key
                      callBack:(CountdownCallback)callback {
     pthread_mutex_lock(&_lock);
     NSDate *endTime = _endDates[@(key)];
@@ -122,7 +122,7 @@ static id _instance;
         if (!callBack) {
             continue;
         }
-        [self countinueTimerWithKey:key.integerValue callBack:callBack];
+        [self continueTimerWithKey:key.integerValue callBack:callBack];
     }
 }
 
