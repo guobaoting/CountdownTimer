@@ -36,7 +36,7 @@ CountdownTimer.stopTimer(key: .test1)
 
 5. 继续某个定时器
 > - 已经被停止的定时器是无法继续的，因为停止的定时器会被移除
-> - 这个方法的作用是当开始定时器的页面被销毁，又想继续某个定时器的时候使用
+> - 这个方法的作用是当开始定时器的页面被销毁，又想继续获取定时器状态的时候使用
 ```swift
 CountdownTimer.continueTimer(key: .test1) { (count, finish) in
   print(count) // 倒计时数字
